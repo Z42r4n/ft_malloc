@@ -21,25 +21,26 @@
 #include <stddef.h>
 #include <stdio.h>
 
-// Metadata structure to track memory blocks
-typedef struct heap_block {
-    void *start;
-    size_t size;
-} t_block;
+// DEFINE MACROS
 
-#define CAPACITY 640000
-#define HEAP_ALLOCED_SIZE 1024
-#define HEAP_FREE_SIZE 1024
+// Alingment to 16
+# define ALIGN_16(x) ((x + 15) & ~15)
+// x	    x + 15	    Binary (x + 15)	    & ~15 Result	    Aligned Value
+// 0	    15	        00001111	        00000000	        0
+// 1	    16	        00010000	        00010000	        16
+// 8	    23	        00010111	        00010000	        16
+// 15	    30	        00011110	        00010000	        16
+// 16	    31	        00011111	        00010000	        16
+// 17	    32	        00100000	        00100000	        32
+// 31	    46	        00101110	        00100000	        32
 
-extern t_block heap_alloced_blocks[HEAP_ALLOCED_SIZE];
-extern size_t heap_alloced_size;
-
-t_block heap_free_blocks[HEAP_FREE_SIZE];
-size_t heap_free_size;
-
-
-extern char memory[CAPACITY];
-extern size_t heap_size;
+// Minimum size to hold Red-Black tree node
+# define MINIMAL_SIZE ALIGN_16((sizeof(void *) * 3) + sizeof(size_t))
+// Field	            Size
+// Left pointer	        sizeof(void *)
+// Right pointer	    sizeof(void *)
+// Parent pointer	    sizeof(void *)
+// Color	            sizeof(int)
 
 // Function prototypes
 void *malloc(size_t size);
@@ -47,6 +48,5 @@ void free(void *ptr);
 void *realloc(void *ptr, size_t size);
 
 // src/utils.c
-void dump_alloced_memory();
 
 #endif //ALLOCATOR_H

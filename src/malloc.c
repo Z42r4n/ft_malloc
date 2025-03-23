@@ -36,28 +36,14 @@
 //     return (void *)(block + 1);  // Return pointer after the metadata block
 // }
 
-char memory[CAPACITY] = {0};
-size_t heap_size = 0;
 
 void *malloc(size_t size) {
-    if (size == 0) {
+    size = ALIGN_16(size);
+
+    if (size < MINIMAL_SIZE)
+        size = MINIMAL_SIZE;
+
+    void *mem_pool_ptr = get_or_allocate_mem_pool();
+    if (!mem_pool_ptr)
         return NULL;
-        // chane it later
-    }
-    if (heap_size + size > CAPACITY) {
-        write(2, "malloc: failed to allocate memory 1\n", 37);
-        return NULL;
-    }
-    void *ptr = memory + heap_size;
-    heap_size += size;
-    t_block block = {
-        .start = ptr,
-        .size = size
-    };
-    if (heap_alloced_size >= HEAP_ALLOCED_SIZE) {
-        write(2, "malloc: failed to allocate memory 2\n", 37);
-        return NULL;
-    }
-    heap_alloced_blocks[++heap_alloced_size] = block;
-    return ptr;
 }

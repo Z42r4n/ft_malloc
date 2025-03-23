@@ -12,10 +12,3 @@
 
 #include "allocator.h"
 
-void dump_alloced_memory() {
-    printf("Allocated memory blocks (%zu):\n", heap_alloced_size);
-    for (size_t i = 0; i < heap_alloced_size; ++i) {
-        t_block block = heap_alloced_blocks[i];
-        printf("Start: %p, Size: %zu\n", block.start, block.size);
-    }
-}

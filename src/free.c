@@ -29,8 +29,8 @@
 //     munmap(block, block->size + sizeof(BlockHeader));  // Unmap the memory
 // }
 
-t_block heap_alloced_blocks[HEAP_ALLOCED_SIZE] = {0};
-size_t heap_alloced_size = 0;
+// t_block heap_alloced_blocks[HEAP_ALLOCED_SIZE] = {0};
+// size_t heap_alloced_size = 0;
 
 void free(void *ptr) {
     // Do nothing

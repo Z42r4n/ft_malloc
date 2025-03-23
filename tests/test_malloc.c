@@ -80,8 +80,8 @@ int main() {
        (void)malloc(i);
     }
 
-    write(1, "\n", 1);
-    dump_alloced_memory();
+    // write(1, "\n", 1);
+    // dump_alloced_memory();
     // free(root);
     return 0;
 }

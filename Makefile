@@ -33,8 +33,16 @@ endif
 
 # Library Names
 NAME := libft_malloc
-SO_NAME := $(NAME)_$(HOSTTYPE).so
-SYMLINK := $(NAME).so
+ifeq ($(shell uname -s),Darwin)
+    SO_NAME := $(NAME)_$(HOSTTYPE).dylib
+	SYMLINK := $(NAME).dylib
+	RPATH_FLAG := -Wl,-rpath,@loader_path
+else
+    SO_NAME := $(NAME)_$(HOSTTYPE).so
+	SYMLINK := $(NAME).so
+	RPATH_FLAG := -Wl,-rpath=.
+	# RPATH_FLAG := -Wl,-rpath=\$$ORIGIN
+endif
 
 # Test Files
 TEST_SRC := $(wildcard $(TEST_DIR)/*.c)
@@ -60,8 +68,8 @@ symlink: $(SO_NAME)
 	ln -sf $(SO_NAME) $(SYMLINK)
 
 # Build the test executable
-$(TEST_BIN): $(TEST_SRC) $(SO_NAME)
-	$(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRC) -L. -lft_malloc -Wl,-rpath=. -o $(TEST_BIN)
+$(TEST_BIN): $(TEST_SRC) $(SO_NAME) symlink
+	$(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRC) -L. -lft_malloc -Wl,-rpath,@loader_path -o $(TEST_BIN)
 
 # Run tests
 test: $(TEST_BIN)
