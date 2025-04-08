@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymoutaou <ymoutaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:49:24 by ymoutaou          #+#    #+#             */
-/*   Updated: 2025/03/05 15:20:46 by ymoutaou         ###   ########.fr       */
+/*   Updated: 2025/04/08 19:12:43 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@
 
 
 void *malloc(size_t size) {
-    size = ALIGN_16(size);
+    // size = ALIGN_16(size);
 
-    if (size < MINIMAL_SIZE)
-        size = MINIMAL_SIZE;
+    // if (size < MINIMAL_SIZE)
+    //     size = MINIMAL_SIZE;
 
-    void *mem_pool_ptr = get_or_allocate_mem_pool();
-    if (!mem_pool_ptr)
-        return NULL;
+    // void *mem_pool_ptr = get_or_allocate_mem_pool();
+    // if (!mem_pool_ptr)
+    //     return NULL;
 }

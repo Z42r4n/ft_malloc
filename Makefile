@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ymoutaou <ymoutaou@student.42.fr>          +#+  +:+       +#+         #
+#    By: zarran <zarran@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 15:47:42 by ymoutaou          #+#    #+#              #
-#    Updated: 2025/03/05 15:04:37 by ymoutaou         ###   ########.fr        #
+#    Updated: 2025/04/08 19:16:33 by zarran           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ symlink: $(SO_NAME)
 
 # Build the test executable
 $(TEST_BIN): $(TEST_SRC) $(SO_NAME) symlink
-	$(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRC) -L. -lft_malloc -Wl,-rpath,@loader_path -o $(TEST_BIN)
+	# $(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRC) -L. -lft_malloc -Wl,-rpath,@loader_path -o $(TEST_BIN)
+	$(CC) $(CFLAGS) -I$(INCLUDE) $(TEST_SRC) -L. -lft_malloc $(RPATH_FLAG) -o $(TEST_BIN)
 
 # Run tests
 test: $(TEST_BIN)

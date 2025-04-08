@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   allocator.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymoutaou <ymoutaou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 12:09:09 by ymoutaou          #+#    #+#             */
-/*   Updated: 2025/03/05 15:22:08 by ymoutaou         ###   ########.fr       */
+/*   Updated: 2025/04/08 21:56:52 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,39 @@
 // Parent pointer	    sizeof(void *)
 // Color	            sizeof(int)
 
+
+// red-black tree node setup
+enum { RED, BLACK }; // color of node
+#define NODE_SIZE sizeof(void *) * 3 + sizeof(int) * 2 // size of node
+#define LEFT_OFFSET 0 // offset of left child
+#define RIGHT_OFFSET sizeof(void *) // offset of right child
+#define PARENT_OFFSET sizeof(void *) * 2 // offset of parent
+#define VALUE_OFFSET sizeof(void *) * 3 // value offset
+#define COLOR_OFFSET sizeof(void *) * 3 + sizeof(int)// color offset
+
 // Function prototypes
 void *malloc(size_t size);
 void free(void *ptr);
 void *realloc(void *ptr, size_t size);
+
+// src/rbtree.c
+void set_value(char *node, int value); // set value
+void set_color(char *node, int color); // set color
+void set_ptr(char *node, char *ptr, size_t offset); // set pointer
+void set_parent(char *node, char *parent); // set parent
+void set_left(char *node, char *left); // set left child
+void set_right(char *node, char *right); // set right child
+void *get_parent(char *node); // get parent
+void *get_left(char *node); // get left child
+void *get_right(char *node); // get right child
+char *get_ptr(char *node, size_t offset); // get pointer
+int get_value(char *node); // get value
+int get_color(char *node); // get color
+void init_node(char *node, int value, int color);
+void* insert_node(char *root, char *node);
+void left_rotate(char **tree_root, char *x);
+void right_rotate(char **tree_root, char *x);
+void fix_insert(char **root_ptr, char *node);
 
 // src/utils.c
 
