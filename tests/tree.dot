@@ -1,0 +1,28 @@
+digraph RBTree {
+    node [shape=circle, fontname="Arial"];
+    "0x7ffd3cca2360" [label="10", style=filled, fillcolor=black, fontcolor=white];
+    "0x7ffd3cca2340" [label="5", style=filled, fillcolor=black, fontcolor=white];
+    "0x7ffd3cca2300" [label="3", style=filled, fillcolor=black, fontcolor=white];
+    "0x7ffd3cca2280" [label="1", style=filled, fillcolor=red, fontcolor=white];
+    "0x7ffd3cca2260" [label="4", style=filled, fillcolor=red, fontcolor=white];
+    "0x7ffd3cca22e0" [label="7", style=filled, fillcolor=black, fontcolor=white];
+    "0x7ffd3cca2320" [label="15", style=filled, fillcolor=black, fontcolor=white];
+    "0x7ffd3cca2240" [label="11", style=filled, fillcolor=red, fontcolor=white];
+    "0x7ffd3cca2220" [label="10", style=filled, fillcolor=black, fontcolor=white];
+    "0x7ffd3cca2200" [label="13", style=filled, fillcolor=black, fontcolor=white];
+    "0x7ffd3cca22c0" [label="12", style=filled, fillcolor=red, fontcolor=white];
+    "0x7ffd3cca21e0" [label="14", style=filled, fillcolor=red, fontcolor=white];
+    "0x7ffd3cca22a0" [label="18", style=filled, fillcolor=black, fontcolor=white];
+    "0x7ffd3cca2360" -> "0x7ffd3cca2340";
+    "0x7ffd3cca2360" -> "0x7ffd3cca2320";
+    "0x7ffd3cca2340" -> "0x7ffd3cca2300";
+    "0x7ffd3cca2340" -> "0x7ffd3cca22e0";
+    "0x7ffd3cca2300" -> "0x7ffd3cca2280";
+    "0x7ffd3cca2300" -> "0x7ffd3cca2260";
+    "0x7ffd3cca2320" -> "0x7ffd3cca2240";
+    "0x7ffd3cca2320" -> "0x7ffd3cca22a0";
+    "0x7ffd3cca2240" -> "0x7ffd3cca2220";
+    "0x7ffd3cca2240" -> "0x7ffd3cca2200";
+    "0x7ffd3cca2200" -> "0x7ffd3cca22c0";
+    "0x7ffd3cca2200" -> "0x7ffd3cca21e0";
+}
