@@ -6,7 +6,7 @@
 /*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 12:09:09 by ymoutaou          #+#    #+#             */
-/*   Updated: 2025/04/08 21:56:52 by zarran           ###   ########.fr       */
+/*   Updated: 2025/04/09 13:49:57 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void *malloc(size_t size);
 void free(void *ptr);
 void *realloc(void *ptr, size_t size);
 
-// src/rbtree.c
+// src/access.c
 void set_value(char *node, int value); // set value
 void set_color(char *node, int color); // set color
 void set_ptr(char *node, char *ptr, size_t offset); // set pointer
@@ -71,10 +71,17 @@ char *get_ptr(char *node, size_t offset); // get pointer
 int get_value(char *node); // get value
 int get_color(char *node); // get color
 void init_node(char *node, int value, int color);
+
+// src/rbtree.c
 void* insert_node(char *root, char *node);
 void left_rotate(char **tree_root, char *x);
 void right_rotate(char **tree_root, char *x);
 void fix_insert(char **root_ptr, char *node);
+char* search_node(char *root, int value);
+void transplant(char **root, char *u, char *v);
+void fix_delete(char **root, char *x);
+char* minimum(char *node);
+void delete_node(char **root, char *z);
 
 // src/utils.c
 
