@@ -6,7 +6,7 @@
 /*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:44:19 by zarran            #+#    #+#             */
-/*   Updated: 2025/04/09 14:14:36 by zarran           ###   ########.fr       */
+/*   Updated: 2025/04/09 21:41:48 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,35 @@ void init_node(char *node, int value, int color)
     set_value(node, value);
     set_color(node, color);
 }
+
+// get size of block
+size_t get_size(void *block) {
+	return *(size_t *)((char *)block + SIZE_OFFSET);
+}
+
+// get size of block
+void set_size(void *block, size_t size) {
+	*(size_t *)((char *)block + SIZE_OFFSET) = size;
+}
+
+// get user data pointer
+void *get_prev(void *block) {
+	return *(void **)((char *)block + PREV_OFFSET);
+}
+
+// get user data pointer
+void set_prev(void *block, void *prev) {
+	*(void **)((char *)block + PREV_OFFSET) = prev;
+}
+
+// get user data pointer
+void *get_data(void *block) {
+	return (void *)((char *)block + DATA_OFFSET);
+}
+
+// Rarely needed but useful for sanity/debug
+void set_data(void *block, void *data_src, size_t size) {
+    // change this to ft_memcpy
+	memcpy((char *)block + DATA_OFFSET, data_src, size);
+}
+

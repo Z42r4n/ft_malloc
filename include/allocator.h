@@ -6,7 +6,7 @@
 /*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 12:09:09 by ymoutaou          #+#    #+#             */
-/*   Updated: 2025/04/09 15:18:41 by zarran           ###   ########.fr       */
+/*   Updated: 2025/04/09 21:43:47 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,20 @@
 // Parent pointer	    sizeof(void *)
 // Color	            sizeof(int)
 
+# define TINY_MAX_SIZE 64
+# define SMALL_MAX_SIZE 512
+
+// [ size (8B) ][ prev ptr (8B) ][ user data (up to 64B) ]
+# define TINY_CAPACITY (TINY_MAX_SIZE * TINY_MAX_SIZE + (sizeof(void *) + sizeof(size_t)) * TINY_MAX_SIZE)
+// [ size (8B) ][ prev ptr (8B) ][ user data (up to 512B) ]
+# define SMALL_CAPACITY (SMALL_MAX_SIZE * SMALL_MAX_SIZE + (sizeof(void *) + sizeof(size_t)) * SMALL_MAX_SIZE)
+# define TOTAL_CAPACITY (TINY_CAPACITY + SMALL_CAPACITY)
+
+// area setup
+# define SIZE_OFFSET 0 // offset of size
+# define PREV_OFFSET sizeof(size_t) // offset of previous pointer
+# define DATA_OFFSET sizeof(void *) + sizeof(size_t) // offset of user data
+
 
 // red-black tree node setup
 enum { RED, BLACK }; // color of node
@@ -71,6 +85,12 @@ char *get_ptr(char *node, size_t offset); // get pointer
 int get_value(char *node); // get value
 int get_color(char *node); // get color
 void init_node(char *node, int value, int color);
+size_t get_size(void *block);
+void set_size(void *block, size_t size);
+void *get_prev(void *block);
+void set_prev(void *block, void *prev);
+void *get_data(void *block);
+void set_data(void *block, void *data_src, size_t size);
 
 // src/rbtree.c
 void* insert_node(char *root, char *node);
