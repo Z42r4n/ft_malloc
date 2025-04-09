@@ -6,7 +6,7 @@
 /*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 12:09:09 by ymoutaou          #+#    #+#             */
-/*   Updated: 2025/04/09 13:49:57 by zarran           ###   ########.fr       */
+/*   Updated: 2025/04/09 15:18:41 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,15 @@ void init_node(char *node, int value, int color);
 
 // src/rbtree.c
 void* insert_node(char *root, char *node);
+void* insert_node_rec(char *root, char *node);
 void left_rotate(char **tree_root, char *x);
 void right_rotate(char **tree_root, char *x);
 void fix_insert(char **root_ptr, char *node);
 char* search_node(char *root, int value);
-void transplant(char **root, char *u, char *v);
-void fix_delete(char **root, char *x);
 char* minimum(char *node);
+void transplant(char **root, char *u, char *v);
 void delete_node(char **root, char *z);
+void fix_delete(char **root, char *x);
 
 // src/utils.c
 
