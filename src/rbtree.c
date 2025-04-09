@@ -6,7 +6,7 @@
 /*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:21:04 by zarran            #+#    #+#             */
-/*   Updated: 2025/04/09 15:26:38 by zarran           ###   ########.fr       */
+/*   Updated: 2025/04/09 15:37:07 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,8 @@ char* minimum(char *node)
 // delete node from tree
 void delete_node(char **root, char *z)
 {
+    if (z == NULL)
+        return;
     char *y = z; // y is the node that will be removed or moved
     int y_original_color = get_color(y); // Save original color
     char *x; // x is the node that replaces y and may need fixing
