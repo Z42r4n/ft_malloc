@@ -6,7 +6,7 @@
 /*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 18:21:04 by zarran            #+#    #+#             */
-/*   Updated: 2025/04/09 15:37:07 by zarran           ###   ########.fr       */
+/*   Updated: 2025/04/09 15:43:32 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -350,4 +350,19 @@ void fix_delete(char **root, char *x)
 
     if (x != NULL)
         set_color(x, BLACK); // Ensure x is black at the end
+}
+
+
+// count nodes in tree
+int count_leaves(char *node)
+{
+    if (node == NULL)
+        return 0;
+
+    // If the node is a leaf (no children), return 1
+    if (get_left(node) == NULL && get_right(node) == NULL)
+        return 1;
+
+    // Otherwise, count leaves in both subtrees
+    return count_leaves(get_left(node)) + count_leaves(get_right(node));
 }
