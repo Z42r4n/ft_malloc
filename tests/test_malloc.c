@@ -6,7 +6,7 @@
 /*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:51:07 by ymoutaou          #+#    #+#             */
-/*   Updated: 2025/04/09 14:12:13 by zarran           ###   ########.fr       */
+/*   Updated: 2025/04/09 15:27:15 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,31 +183,38 @@ int main() {
     // Insert nodes into the tree (all nodes are red initially)
     tree = insert_node(tree, node1);  // Insert root
     // printf("%p\n", tree);
-    fix_insert(&tree, node1);
+    // fix_insert(&tree, node1);
     insert_node(tree, node2);  // Insert left child of root
-    fix_insert(&tree, node2);
+    // fix_insert(&tree, node2);
     insert_node(tree, node3);  // Insert right child of root
-    fix_insert(&tree, node3);
+    // fix_insert(&tree, node3);
     insert_node(tree, node4);  // Insert left child of left child
-    fix_insert(&tree, node4);
+    // fix_insert(&tree, node4);
     insert_node(tree, node5);  // Insert right child of left child
-    fix_insert(&tree, node5);
+    // fix_insert(&tree, node5);
     insert_node(tree, node6);  // Insert left child of right child
-    fix_insert(&tree, node6);
+    // fix_insert(&tree, node6);
     insert_node(tree, node7);  // Insert right child of right child
-    fix_insert(&tree, node7);
+    // fix_insert(&tree, node7);
     insert_node(tree, node8);  // Insert left child of left child of left child
-    fix_insert(&tree, node8);
+    // fix_insert(&tree, node8);
     insert_node(tree, node9);  // Insert right child of left child of left child
-    fix_insert(&tree, node9);
+    // fix_insert(&tree, node9);
     insert_node(tree, node10); // Insert left child of left child of right child
-    fix_insert(&tree, node10);
+    // fix_insert(&tree, node10);
     insert_node(tree, node11); // Insert duplicate value
-    fix_insert(&tree, node11); // Fix the tree after insertion
+    // fix_insert(&tree, node11); // Fix the tree after insertion
     insert_node(tree, node12); // Insert right child of left child of right child
-    fix_insert(&tree, node12);
+    // fix_insert(&tree, node12);
     insert_node(tree, node13); // Insert left child of right child of right child
-    fix_insert(&tree, node13);
+    // fix_insert(&tree, node13);
+
+    // remove
+    // delete_node(&tree, search_node(tree, 5));
+    // delete_node(&tree, search_node(tree, 1));
+    // delete_node(&tree, search_node(tree, 13));
+    delete_node(&tree, search_node(tree, 15));
+    // fix_delete(&tree, node1);
 
     // Generate the dot file for visualization
     generate_dot(tree, "tree.dot");
