@@ -6,7 +6,7 @@
 /*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 15:51:07 by ymoutaou          #+#    #+#             */
-/*   Updated: 2025/04/09 15:30:44 by zarran           ###   ########.fr       */
+/*   Updated: 2025/04/09 23:38:36 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,9 +213,9 @@ int main() {
     // delete_node(&tree, search_node(tree, 5));
     // delete_node(&tree, search_node(tree, 1));
     // delete_node(&tree, search_node(tree, 13));
-    delete_node(&tree, search_node(tree, 10));
-    delete_node(&tree, search_node(tree, 10));
-    delete_node(&tree, search_node(tree, 100));
+    // delete_node(&tree, search_node(tree, 10));
+    // delete_node(&tree, search_node(tree, 10));
+    // delete_node(&tree, search_node(tree, 100));
     // fix_delete(&tree, node1);
 
     // Generate the dot file for visualization

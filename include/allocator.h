@@ -6,7 +6,7 @@
 /*   By: zarran <zarran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 12:09:09 by ymoutaou          #+#    #+#             */
-/*   Updated: 2025/04/09 21:43:47 by zarran           ###   ########.fr       */
+/*   Updated: 2025/04/09 23:39:22 by zarran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <sys/mman.h>
 #include <stddef.h>
 #include <stdio.h>
+
+# include <string.h>
 
 // DEFINE MACROS
 
